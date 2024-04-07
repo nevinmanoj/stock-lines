@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { addNewFund } from "../redux/mfSlice";
+import { useDispatch } from "react-redux";
+import { addNewFund } from "../../redux/mf/mfSlice";
 import "./fundInput.css";
-import { getSuggestions } from "../services/apiCalls/mfAPis";
+import { getSuggestions } from "../../services/apiCalls/mf/suggestionsAPI";
 
 export const FundInput = () => {
   const [items, setitems] = useState([]);
@@ -10,24 +10,17 @@ export const FundInput = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
 
-  // const filterItems = () => {
-  //   return items.filter((item) =>
-  //     item.toLowerCase().includes(inputValue.toLowerCase())
-  //   );
-  // };
-
   const handleInputChange = async (e) => {
     setInputValue(e.target.value);
-    //fire api here
-
+    // control to fire only in timeout
     var res = await getSuggestions(e.target.value);
-    console.log(res);
     setitems(res);
   };
 
   const handleItemClick = (item) => {
-    // item
-    // dispatch(addNewFund());
+    dispatch(addNewFund(item));
+    setitems([]);
+    setInputValue("");
   };
 
   return (
@@ -41,7 +34,7 @@ export const FundInput = () => {
       <ul>
         {items.map((item, index) => (
           <div key={index} onClick={() => handleItemClick(item)}>
-            {item}
+            {item.scheme_name}
           </div>
         ))}
       </ul>

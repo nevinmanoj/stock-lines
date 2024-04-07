@@ -1,8 +1,7 @@
-import { RequestPageRounded } from "@mui/icons-material";
 import axios from "axios";
+import { proxy } from "../proxy";
 
 export const getSuggestions = async (value) => {
-  var proxy = "http://localhost:3000/data";
   var gurl =
     "https://groww.in/v1/api/search/v1/entity?app=false&entity_type=scheme&page=0&q=" +
     value +
@@ -12,8 +11,8 @@ export const getSuggestions = async (value) => {
   };
   try {
     var response = await axios.post(proxy, header);
-    console.log(response.data);
-    return response.data["content"].map((item) => item.scheme_name);
+
+    return response.data["content"];
   } catch (error) {
     console.log("error:" + error);
     return [];

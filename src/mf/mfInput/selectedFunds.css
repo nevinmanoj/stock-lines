@@ -11,3 +11,17 @@
 .remove-icon{
     align-self: flex-end;
 }
+.compare-btn{
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: bisque;
+   
+}
+.selected-fund-header{
+    display: flex;
+    padding: 10px;
+   
+   
+}

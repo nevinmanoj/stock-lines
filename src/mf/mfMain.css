@@ -1,3 +1,6 @@
 .add-fund{
     cursor: pointer;
 }
+.mfOutput{
+    display: flex;
+}

@@ -1,14 +1,17 @@
-import { useState } from "react";
-import { FundInput } from "./fundInput";
-import { Venn } from "./mfVenn";
-import { SelectedFunds } from "./selectedFunds";
+import { FundInput } from "./mfInput/fundInput";
+import { MfPie } from "./mfOutput/mfPie";
+import { SelectedFunds } from "./mfInput/selectedFunds";
+import { MfSidebar } from "./mfOutput/mfSidebar";
 import "./mfMain.css";
 export const MfMain = () => {
   return (
     <>
       <FundInput />
       <SelectedFunds />
-      <Venn />
+      <div className="mfOutput">
+        <MfPie />
+        <MfSidebar />
+      </div>
     </>
   );
 };

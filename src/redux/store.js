@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit"
-import mfReducer from './mfSlice';
+import mfReducer from './mf/mfSlice';
 
 export const store = configureStore({
     reducer:{
