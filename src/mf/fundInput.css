@@ -1,0 +1,9 @@
+.fund-input{
+    margin-bottom: 10px;
+}
+.fund-input-outer{
+   padding: 10px;
+   border: 1px solid black;
+   border-radius: 5px; 
+   margin-top: 5px;
+}
