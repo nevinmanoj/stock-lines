@@ -10,7 +10,7 @@ export const getSuggestions = async (value) => {
     url: gurl,
   };
   try {
-    var response = await axios.post(proxy, header);
+    var response = await axios.post(proxy + "data", header);
 
     return response.data["content"];
   } catch (error) {
